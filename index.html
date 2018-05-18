@@ -14,51 +14,61 @@
 <body>
   
   <div class="container">
+    <!-- blank row to get it off the top of the page -->
+    <div class="row"></div>
     <div class="row center">
-      <div class="col s3"></div>
-      <div class="col s6 purple">
+      <div class="col s2"></div>
+      <div class="col s8 deep-purple z-depth-1 roundedCorners">
         <div class="section">
-          <h1 id="weather-location">location</h1>
+          <h1 id="weather-location" class="white-text">location</h1>
           <h3 id="weather-description">description</h3>
-          <h3 id="weather-string">string</h3>
+          <h3 id="weather-string" class="white-text">string</h3>
         </div>
-        <div class="section">
-          <img src="" alt="" id='weather-icon'>
+        <div class="section card purple roundedCorners">
+          <img class="z-depth-1 circle" src="" alt="" id='weather-icon'>
           <h6 id="weather-time">time</h6>
         </div>
         <div class="section">
-          <ul id="weather-details">
-            <li id="weather-humidity">humidity</li>
-            <li id="weather-dewPoint">dew point</li>
-            <li id="weather-feelsLike">feels like</li>
-            <li id="weather-wind">wind</li>
+          <ul id="weather-details" class="collection roundedCorners card">
+            <li id="weather-humidity" class="collection-item">humidity</li>
+            <li id="weather-dewPoint" class="collection-item">dew point</li>
+            <li id="weather-feelsLike" class="collection-item">feels like</li>
+            <li id="weather-wind" class="collection-item">wind</li>
           </ul>
         </div>
-        <hr>
+        <hr class="z-depth-1">
         <div class="section">
-          <button class="btn waves-effect waves-light modal-trigger" type="button" data-target='modal1'>Change Location</button>
+          <button class="btn waves-effect waves-light modal-trigger purple" type="button" data-target='modal1'>Change Location</button>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+            © 2018 Copyright Daniel C. Landon Jr.
+          </div>
+          <div class="container">
+            <a href="https://www.wunderground.com/">WeatherUnderground</a>
+          </div>
         </div>
       </div>
-      <div class="col s3"></div>
+      <div class="col s2"></div>
     </div>
   </div>
   
   <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
+  <div id="modal1" class="modal roundedCorners">
+    <div class="modal-content deep-purple">
       <h4>Choose Location</h4>
       <div class="input-field col s6">
-        <input id="city" type="text" class="validate" placeholder="Enter City">
-        <label for="city" class="active">City</label>
+        <input id="city" type="text" class="validate">
+        <label for="city" class="active">Enter City</label>
       </div>
       <div class="input-field col s6">
-        <input id="state" type="text" class="validate" placeholder="Enter State">
-        <label for="state" class="active">State</label>
+        <input id="state" type="text" class="validate">
+        <label for="state" class="active">Enter State</label>
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn modal-close waves-effect waves-light">Close</button>
-      <button id='setLocation' class="btn waves-effect waves-light">Save Changes</button>
+    <div class="modal-footer purple">
+      <button class="btn modal-close waves-effect waves-light deep-purple">Close</button>
+      <button id='setLocation' class="btn waves-effect waves-light deep-purple">Save Changes</button>
     </div>
   </div>
   

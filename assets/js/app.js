@@ -100,6 +100,10 @@ const App = ((Storage_Ctrl, UI_Ctrl, Weather_Ctrl) => {
     // get weather information
     getWeather(location.city, location.state);
 
+    // clear fields
+    document.querySelector('#city').textContent = '';
+    document.querySelector('#state').textContent = '';
+
     // close modal
     $('#modal1').modal('close');
   };

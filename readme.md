@@ -1,6 +1,7 @@
 # Weather Undergound Application
 
-Displays the weather for a specific location. Location defaults to location but can be changed and saved to local storage.
+- Using API from Weather Underground
+- stores location to local storage. If no location is available (local storage empty) it will default to New Albany IN.
 
 ---
 
