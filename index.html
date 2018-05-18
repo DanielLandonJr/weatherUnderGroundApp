@@ -4,9 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Weaher Underground</title>
+  <title>Weather Underground</title>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/app.css">
 </head>
 <body>
-  <h1>Weather Underground Application</h1>
+  
+  <div class="container">
+    <div class="row center">
+      <div class="col s3"></div>
+      <div class="col s6 purple">
+        <div class="section">
+          <h1 id="weather-location">location</h1>
+          <h3 id="weather-description">description</h3>
+          <h3 id="weather-string">string</h3>
+        </div>
+        <div class="section">
+          <img src="" alt="" id='weather-icon'>
+          <h6 id="weather-time">time</h6>
+        </div>
+        <div class="section">
+          <ul id="weather-details">
+            <li id="weather-humidity">humidity</li>
+            <li id="weather-dewPoint">dew point</li>
+            <li id="weather-feelsLike">feels like</li>
+            <li id="weather-wind">wind</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="section">
+          <button class="btn waves-effect waves-light modal-trigger" type="button" data-target='modal1'>Change Location</button>
+        </div>
+      </div>
+      <div class="col s3"></div>
+    </div>
+  </div>
+  
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Choose Location</h4>
+      <div class="input-field col s6">
+        <input id="city" type="text" class="validate" placeholder="Enter City">
+        <label for="city" class="active">City</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="state" type="text" class="validate" placeholder="Enter State">
+        <label for="state" class="active">State</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn modal-close waves-effect waves-light">Close</button>
+      <button id='setLocation' class="btn waves-effect waves-light">Save Changes</button>
+    </div>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src='./assets/js/app.js'></script>
 </body>
 </html>
