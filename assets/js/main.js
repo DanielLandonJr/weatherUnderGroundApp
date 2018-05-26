@@ -4,7 +4,8 @@ import * as Weather_Ctrl from './weather.js';
 
 const WeatherUnderground = (() => {
   $(document).ready(function(){
-    $('.modal').modal();
+    let elems = document.querySelector('.modal');
+    let instances = M.Modal.init(elems);
   });
 
   let location = '';
@@ -36,7 +37,9 @@ const WeatherUnderground = (() => {
     document.querySelector('#state').textContent = '';
 
     // close modal
-    $('#modal1').modal('close');
+    let elems = document.querySelector('.modal');
+    let instances = M.Modal.getInstance(elems);
+    instances.close();
   };
 
   const getWeather = (city, state) => {
