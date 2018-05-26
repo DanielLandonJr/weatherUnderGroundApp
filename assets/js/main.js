@@ -3,7 +3,9 @@ import * as UI_Ctrl from './ui.js';
 import * as Weather_Ctrl from './weather.js';
 
 const WeatherUnderground = (() => {
-  $(document).ready(function(){
+  // document load
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // setup the modal so it will dispaly
     let elems = document.querySelector('.modal');
     let instances = M.Modal.init(elems);
   });

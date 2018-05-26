@@ -1,8 +1,8 @@
-const apiKey = '5a1b209e966659bb';
+import * as API from './api_KEY.js';
 
-// public methods
+// fetch the data from weather underground
 export async function getWeather(city, state) {
-    const response = await fetch(`http://api.wunderground.com/api/${ apiKey }/conditions/q/${ state }/${ city }.json`);
+    const response = await fetch(`http://api.wunderground.com/api/${ API.apiKey() }/conditions/q/${ state }/${ city }.json`);
   
     const responseData = await response.json();
   

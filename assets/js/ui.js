@@ -1,6 +1,6 @@
 let wind_string = '';
 
-// public methods
+// paint the ui to show weather information
 export function paint(weather) {
     document.querySelector('#weather-location').textContent = weather.display_location.full;
     document.querySelector('#weather-description').textContent = weather.weather;
