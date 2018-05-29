@@ -11,50 +11,79 @@ const WeatherUnderground = (() => {
   });
 
   let location = '';
-  let setCity = '';
-  let setState = '';
 
   // load event listeners
   const loadEventListeners = () => {
+    // set location when user clicks 'save changes' button
     document.querySelector('#setLocation').addEventListener('click', updateLocation);
+
+    // clear fields for city/state when user opens the modal
+    document.querySelector('.modal-trigger').addEventListener('click', () => {
+      // clear fields
+      document.querySelector('#city').value = '';
+      document.querySelector('#state').value = '';
+    });
   }
 
   const updateLocation = (event) => {
     event.preventDefault();
 
-    console.log('click');
-    // update local storage
-    setCity = document.querySelector('#city').value;
-    setState = document.querySelector('#state').value;
-    Storage_Ctrl.setLocationData(setCity, setState);
+    let setCity = document.querySelector('#city').value;
+    let setState = document.querySelector('#state').value;
 
-    // get location data
-    location = Storage_Ctrl.getLocationData();
+    // validation checking, make sure fields are not empty
+    if (setCity !== '' && setState !== '') {
+      // update local storage
+      Storage_Ctrl.Storage.setLocationData(setCity, setState);
 
-    // get weather information
-    getWeather(location.city, location.state);
+      // get location data
+      location = Storage_Ctrl.Storage.getLocationData();
 
-    // clear fields
-    document.querySelector('#city').textContent = '';
-    document.querySelector('#state').textContent = '';
+      // get weather information
+      getWeather(location.city, location.state);
 
-    // close modal
-    let elems = document.querySelector('.modal');
-    let instances = M.Modal.getInstance(elems);
-    instances.close();
+      // close modal
+      let elems = document.querySelector('.modal');
+      let instances = M.Modal.getInstance(elems);
+      instances.close();
+    } else {
+      // no values supplied
+      M.toast({html: 'Please Supply a City and State.', classes: 'rounded'});
+
+      // clear fields
+      UI_Ctrl.UI.clearLocationFields();
+    }
   };
 
   const getWeather = (city, state) => {
-    const weather = Weather_Ctrl.getWeather(location.city, location.state)
-      .then((response) => UI_Ctrl.paint(response))
-      .catch((error) => console.log(error));
+    const weather = Weather_Ctrl.Weather.getWeather(location.city, location.state)
+      .then((response) => {
+        if (response !== undefined) {
+          // valid data returned
+
+          // paint the ui with returned data
+          UI_Ctrl.UI.paint(response);
+
+          // show/hide valid data ui elements
+          UI_Ctrl.UI.validDataReturn();
+        } else {
+          // invalid data returned
+          M.toast({html: 'Invalid data returned from Weather Underground. Please set City & State location.', classes: 'rounded'});
+          
+          // show/hide invalid data ui elements
+          UI_Ctrl.UI.invalidDataReturn();
+        }
+      })
+      .catch((error) => { 
+        console.log(error); 
+      });
   }
 
   // public methods
   return {
     init: () => {
       // get location data
-      location = Storage_Ctrl.getLocationData();
+      location = Storage_Ctrl.Storage.getLocationData();
 
       // get weather information
       getWeather(location.city, location.state);
