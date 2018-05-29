@@ -16,7 +16,7 @@ export const Storage = (() => {
         state = defaultState;
     
         // write to local storage for the first time. this will write the default data.
-        setLocationData(city, state);
+        Storage.setLocationData(city, state);
       } else {
         locationData = JSON.parse(localStorage.getItem('weatherUnderGround'));
         city = locationData.city;
