@@ -8,7 +8,6 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/app.css">
   
 </head>
 <body>
@@ -16,6 +15,8 @@
   <div class="container">
     <!-- this tag will allow me to call the content only when I load this as a module into another html file. I dont want the container as it messes up the formatting -->
     <div id="mainContent">
+      <!-- include stylesheets here otherwise it wont be part of the ajax call -->
+      <link rel="stylesheet" href="./assets/css/app.css">
       <!-- blank row to get it off the top of the page -->
       <div class="row">
       </div>
